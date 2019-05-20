@@ -1,5 +1,6 @@
 from itertools import cycle
 from numpy.random import randint,choice
+import os
 import sys
 
 
@@ -14,7 +15,7 @@ PIPEGAPSIZE  = 160 # gap between upper and lower part of pipe
 BASEY        = SCREENHEIGHT * 0.79
 SCORE = 0
 
-BACKGROUND = pygame.image.load('/home/roshan/Documents/FlappyBird/background.png')
+BACKGROUND = pygame.image.load(os.path.join('images', 'background.png'))
 
 
 class Bird(pygame.sprite.Sprite):
@@ -23,7 +24,7 @@ class Bird(pygame.sprite.Sprite):
 
         pygame.sprite.Sprite.__init__(self)
 
-        self.image = pygame.image.load('/home/roshan/Documents/FlappyBird/redbird.png')
+        self.image = pygame.image.load(os.path.join('images', 'redbird.png'))
 
         self.x = int(SCREENWIDTH * 0.2)
         self.y = SCREENHEIGHT*0.5
@@ -86,8 +87,8 @@ class Pipe(pygame.sprite.Sprite):
 		pygame.sprite.Sprite.__init__(self)
 
 		self.screen = screen
-		self.lowerBlock = PipeBlock('/home/roshan/Documents/FlappyBird/pipe-red.png',False)
-		self.upperBlock = PipeBlock('/home/roshan/Documents/FlappyBird/pipe-red.png',True)
+		self.lowerBlock = PipeBlock(os.path.join('images', 'pipe-red.png'),False)
+		self.upperBlock = PipeBlock(os.path.join('images', 'pipe-red.png'),True)
 		
 
 		self.pipeWidth = self.upperBlock.rect.width
